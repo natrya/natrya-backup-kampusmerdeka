@@ -6,7 +6,13 @@ script ini menggunakan bash dan php {php-curl}
 masih banyak ruang untuk berkolaborasi, yuk gass.
 
 ## cara install
-install PHP di komputer dan mendukung bash script (optional)
+install PHP dan git di komputer dan mendukung bash script (optional)
+
+clone repository
+
+```bash
+git clone https://github.com/natrya/natrya-backup-kampusmerdeka.git
+```
 
 install library php yang dibutuhkan dengan 
 
@@ -14,14 +20,14 @@ install library php yang dibutuhkan dengan
 composer install
 ```
 
-set env variabel untuk login di kampus merdeka
+### set env variabel untuk login di kampus merdeka
 
 ```bash
 export MERDEKAUN=email@kampusmerdeka
 export MERDEKAPSS=passwordnya
 ```
 
-
+### membuat backup ke file rangkuman.xls 
 jalankan dengan bash
 
 ```bash
@@ -40,6 +46,7 @@ php rekap-final-assessment.php
 
 akan ada file baru bernama rangkuman.xls yang berisi informasi dari website mentor.kampusmerdeka.kemdikbud.go.id
 
+### rekap weekly report yang belum diisi
 untuk mendapatkan rekap weekly report yang belum di isi oleh setiap mentee dengan cara sebagai berikut
 
 ```bash
@@ -76,6 +83,8 @@ DEDY YUSUF kurang 16
 Muhammad Nizamuddin Aulia kurang 3
 ```
 
+
+### rekap weekly report yang belum direview
 untuk mendapatkan rekap weekly report khusus mentor yang belum di review dengan cara sebagai berikut
 
 ```bash
@@ -110,4 +119,21 @@ DEDY AUFANSYAH PUTRA kurang 10 belumrev 0
 KHIFDHIYA SYARIFA AGUSTINA kurang 1 belumrev 0
 DEDY YUSUF kurang 16 belumrev 0
 Muhammad Nizamuddin Aulia kurang 3 belumrev 2
+```
+
+### autoconfirm untuk weekly report 
+untuk melakukan autoconfirm weekly report
+
+```bash
+php autoconfirm.php
+```
+
+contoh hasilnya
+
+```bash
+autoconfirm Krisya Nurul Khoiriyah
+autoconfirm Pradita Ramadhani Putri
+autoconfirm Pramitha Ayu Ningtyas
+autoconfirm CLEMENTINO BRAMEDSA
+autoconfirm Muhammad Nizamuddin Aulia
 ```

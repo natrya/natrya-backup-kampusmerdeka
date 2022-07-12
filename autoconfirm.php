@@ -1,6 +1,7 @@
 <?php
 
 include "function.php";
+require_once "confirm.php";
 $cfg = parse_ini_file("config.txt", true);
 $token = $cfg["init"]["token"];
 $activity_id=$cfg["init"]["activity_id"];
@@ -43,13 +44,21 @@ for ($i=0;$i<$jmlmentee;$i++){
             echo("silahkan login terlebih dahulu\nphp login.php");
         }else{
             $jumlah=sizeof($hasil["data"]);
-            $draft=0;
+            $k=0;
+            $submit=array();
             for ($j=0;$j<$jumlah;$j++){
-                if ($hasil["data"][$j]["status"]=="DRAFT"){
-                    $draft++;
+                if ($hasil["data"][$j]["status"]=="SUBMITTED"){
+                    $submit[$k]=$hasil["data"][$j]["id"];
+                    $k++;
                 }
             }
-            echo $mentee[$i]["nama"]." kurang ".$draft."\n";
+            $jumsubmit=sizeof($submit);
+            if ($jumsubmit > 0){
+                echo "autoconfirm ".$mentee[$i]["nama"]."\n";
+                for ($k=0;$k<$jumsubmit;$k++){
+                   set_confirm($token,$submit[$k]); 
+                }
+            }
         }
     }
 }
