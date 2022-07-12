@@ -1,0 +1,6 @@
+vendor/*
+rangkuman.xls
+php_errors.log
+.DS_Store
+config.txt
+mentee.txt
