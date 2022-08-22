@@ -48,8 +48,22 @@ for ($i=0;$i<$jmlmentee;$i++){
             $submit=array();
             for ($j=0;$j<$jumlah;$j++){
                 if ($hasil["data"][$j]["status"]=="SUBMITTED"){
-                    $submit[$k]=$hasil["data"][$j]["id"];
-                    $k++;
+                    echo "Minggu ke-".$hasil["data"][$j]["counter"].PHP_EOL;
+                    $kurang = 0;
+                    $totalchild = sizeof ($hasil["data"][$j]["daily_reports"]); 
+                    for ($k=0;$k < $totalchild;$k++)
+                    {
+                        if (str_word_count($hasil["data"][$j]["daily_reports"][$k]["report"]) < 50)
+                        {
+                            $kurang =1;
+                            echo date('d F Y', strtotime($hasil["data"][$j]["daily_reports"][$k]["report_date"]))." kurang dari 50 kata".PHP_EOL;
+                        }
+                    }
+                    if ($kurang == 0)
+                    {
+                        $submit[$k]=$hasil["data"][$j]["id"];
+                        $k++;
+                    }
                 }
             }
             $jumsubmit=sizeof($submit);
