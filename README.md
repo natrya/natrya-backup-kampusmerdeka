@@ -42,6 +42,7 @@ php daftarmentee.php
 php rekap-monthly-logs.php
 php rekap-initial-assessment.php
 php rekap-final-assessment.php
+php rekap-mhs-weekly.php
 ```
 
 akan ada file baru bernama rangkuman.xls yang berisi informasi dari website mentor.kampusmerdeka.kemdikbud.go.id
@@ -136,4 +137,12 @@ autoconfirm Pradita Ramadhani Putri
 autoconfirm Pramitha Ayu Ningtyas
 autoconfirm CLEMENTINO BRAMEDSA
 autoconfirm Muhammad Nizamuddin Aulia
+```
+
+### Rekap weekly report mahasiswa 
+untuk melakukan rekap weekly report mahasiswa ke excel, 
+apabila dilakukan berulang maka worksheet akan dihapus kemudian dibuat lagi 
+
+```bash
+php rekap-mhs-weekly.php
 ```
