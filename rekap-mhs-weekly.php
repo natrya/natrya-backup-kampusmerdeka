@@ -10,7 +10,7 @@ $nama = $cfg["init"]["nama"];
 $activity_id=$cfg["init"]["activity_id"];
 $mentee = parse_ini_file("mentee.txt", true);
 $jmlmentee=sizeof($mentee);
-echo "ambil final assessment\n";
+echo "rekap weekly report mahasiswa\n";
 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('rangkuman.xls');
 for ($i=0;$i<$jmlmentee;$i++){
     $curl = curl_init();
