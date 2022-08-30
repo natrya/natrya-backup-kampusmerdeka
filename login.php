@@ -25,7 +25,6 @@ if (getenv("MERDEKAUN")==""){
                 "Accept-Language: en-GB,en-US;q=0.9,en;q=0.8",
                 "Cache-Control: no-cache",
                 "Connection: keep-alive",
-                "Content-Length: 60",
                 "Content-Type: application/json",
                 "Host: api.kampusmerdeka.kemdikbud.go.id",
                 "Origin: https://mentor.kampusmerdeka.kemdikbud.go.id",
