@@ -1,5 +1,5 @@
 vendor/*
-rangkuman.xls
+rangkuman*.xls
 php_errors.log
 .DS_Store
 config.txt
