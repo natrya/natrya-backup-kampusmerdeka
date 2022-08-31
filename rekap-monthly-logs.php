@@ -5,6 +5,7 @@ use \PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 include "function.php";
 require_once "daftarlogs.php";
 
+error_reporting(0);
 $cfg = parse_ini_file("config.txt", true);
 $token = $cfg["init"]["token"];
 echo "ambil monthly logs\n";

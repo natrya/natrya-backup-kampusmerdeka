@@ -4,6 +4,8 @@ require_once "vendor/autoload.php";
 use \PhpOffice\PhpSpreadsheet\Spreadsheet;
 use \PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 include "function.php";
+
+error_reporting(0);
 $cfg = parse_ini_file("config.txt", true);
 $token = $cfg["init"]["token"];
 $nama = $cfg["init"]["nama"];
