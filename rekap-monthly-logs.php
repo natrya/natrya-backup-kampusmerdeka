@@ -48,9 +48,9 @@ for ($i=0;$i<sizeof($balikan["data"]);$i++){
             echo("silahkan login terlebih dahulu\nphp login.php");
         }else{
             $worksheet->getCell('A'.($i+4))->setValue($hasil["data"]["period"]);
-            $worksheet->getCell('B'.($i+4))->setValue(str_replace("- ","",$hasil["data"]["projects"]));
+            $worksheet->getCell('B'.($i+4))->setValue(str_replace("- ","",$hasil["data"]["projects"],$hitung));
             $worksheet->getStyle('B'.($i+4))->getAlignment()->setWrapText(true);
-            $worksheet->getCell('C'.($i+4))->setValue(str_replace("- ","",$hasil["data"]["guidances"]));
+            $worksheet->getCell('C'.($i+4))->setValue(str_replace("- ","",$hasil["data"]["guidances"],$hitung2));
             $worksheet->getStyle('C'.($i+4))->getAlignment()->setWrapText(true);
             $worksheet->getCell('D'.($i+4))->setValue($hasil["data"]["hours_spent"]);
         }

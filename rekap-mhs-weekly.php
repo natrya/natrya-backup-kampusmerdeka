@@ -109,7 +109,7 @@ for ($i=0;$i<$jmlmentee;$i++){
                     //detail per tanggal
                     $baris++;
                     $worksheet->getCell('A'.$baris)->setValue(date('d F Y', strtotime($hasil["data"][$l]["daily_reports"][$m]["report_date"])));
-                    $worksheet->getCell('B'.$baris)->setValue(substr(remove_emoji(str_replace("==","",$hasil["data"][$l]["daily_reports"][$m]["report"])),0,9990));
+                    $worksheet->getCell('B'.$baris)->setValue(substr(remove_emoji(str_replace("==","",$hasil["data"][$l]["daily_reports"][$m]["report"],$hitung)),0,9990));
                     $spreadsheet->getActiveSheet()->getStyle('B'.$baris)->getAlignment()->setWrapText(true);
                     $worksheet->getCell('C'.$baris)->setValue($hasil["data"][$l]["daily_reports"][$m]["status"]);
                 }
