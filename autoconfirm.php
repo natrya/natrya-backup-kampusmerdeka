@@ -41,7 +41,10 @@ for ($i=0;$i<$jmlmentee;$i++){
     } else {
         $hasil=json_decode($response,true);
         if (isset($hasil["error"])){
-            echo("silahkan login terlebih dahulu\nphp login.php");
+            if ($hasil["error"]["code"]==16)
+            {
+                echo("\nsilahkan login terlebih dahulu. php login.php\n");
+            }
         }else{
             $jumlah=sizeof($hasil["data"]);
             $k=0;
@@ -69,8 +72,9 @@ for ($i=0;$i<$jmlmentee;$i++){
             $jumsubmit=sizeof($submit);
             if ($jumsubmit > 0){
                 echo "autoconfirm ".$mentee[$i]["nama"]."\n";
-                for ($k=0;$k<$jumsubmit;$k++){
-                   set_confirm($token,$submit[$k]); 
+                foreach($submit as $key => $value)
+                {
+                   set_confirm($token,$submit[$key]); 
                 }
             }
         }
