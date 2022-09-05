@@ -46,7 +46,10 @@ for ($i=0;$i<sizeof($balikan["data"]);$i++){
     } else {
         $hasil=json_decode($response,true);
         if (isset($hasil["error"])){
-            echo("silahkan login terlebih dahulu\nphp login.php");
+            if ($hasil["error"]["code"]==16)
+            {
+                echo("\nsilahkan login terlebih dahulu. php login.php\n");
+            }
         }else{
             $worksheet->getCell('A'.($i+4))->setValue($hasil["data"]["period"]);
             $worksheet->getCell('B'.($i+4))->setValue(str_replace("- ","",$hasil["data"]["projects"],$hitung));

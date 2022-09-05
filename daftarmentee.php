@@ -43,7 +43,10 @@ if ($err) {
 } else {
     $hasil=json_decode($response,true);
     if (isset($hasil["error"])){
-        echo("silahkan login terlebih dahulu\nphp login.php");
+        if ($hasil["error"]["code"]==16)
+            {
+                echo("\nsilahkan login terlebih dahulu. php login.php\n");
+            }
     }else{
         echo("ambil data mentee\n");
         $mentee="id kegiatan peserta,nama,email,universitas\n";

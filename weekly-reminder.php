@@ -40,7 +40,10 @@ for ($i=0;$i<$jmlmentee;$i++){
     } else {
         $hasil=json_decode($response,true);
         if (isset($hasil["error"])){
-            echo("silahkan login terlebih dahulu\nphp login.php");
+            if ($hasil["error"]["code"]==16)
+            {
+                echo("\nsilahkan login terlebih dahulu. php login.php\n");
+            }
         }else{
             $jumlah=sizeof($hasil["data"]);
             $draft=0;

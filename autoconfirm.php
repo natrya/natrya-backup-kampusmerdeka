@@ -53,10 +53,10 @@ for ($i=0;$i<$jmlmentee;$i++){
                     $totalchild = sizeof ($hasil["data"][$j]["daily_reports"]); 
                     for ($k=0;$k < $totalchild;$k++)
                     {
-                        if (str_word_count($hasil["data"][$j]["daily_reports"][$k]["report"]) < 50)
+                        if (str_word_count($hasil["data"][$j]["daily_reports"][$k]["report"]) < 20)
                         {
                             $kurang =1;
-                            echo date('d F Y', strtotime($hasil["data"][$j]["daily_reports"][$k]["report_date"]))." kurang dari 50 kata".PHP_EOL;
+                            echo date('d F Y', strtotime($hasil["data"][$j]["daily_reports"][$k]["report_date"]))." kurang dari 20 kata".PHP_EOL;
                         }
                     }
                     if ($kurang == 0)
