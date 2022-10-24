@@ -51,6 +51,7 @@ for ($i=0;$i<$jmlmentee;$i++){
             $submit=array();
             for ($j=0;$j<$jumlah;$j++){
                 if ($hasil["data"][$j]["status"]=="SUBMITTED"){
+                    echo "autoconfirm ".$mentee[$i]["nama"]."\n";
                     echo "Minggu ke-".$hasil["data"][$j]["counter"].PHP_EOL;
                     $kurang = 0;
                     $totalchild = sizeof ($hasil["data"][$j]["daily_reports"]); 
@@ -71,7 +72,6 @@ for ($i=0;$i<$jmlmentee;$i++){
             }
             $jumsubmit=sizeof($submit);
             if ($jumsubmit > 0){
-                echo "autoconfirm ".$mentee[$i]["nama"]."\n";
                 foreach($submit as $key => $value)
                 {
                    set_confirm($token,$submit[$key]); 
