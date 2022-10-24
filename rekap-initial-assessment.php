@@ -40,7 +40,6 @@ for ($i=0;$i<$jmlmentee;$i++){
 
     $response = curl_exec($curl);
     $err = curl_error($curl);
-
     curl_close($curl);
 
     if ($err) {
@@ -59,12 +58,12 @@ for ($i=0;$i<$jmlmentee;$i++){
             $worksheet->getCell('D'.($i+4))->setValue("Studi Independen Bersertifikat : Digital Transformation in The Government ");
             $worksheet->getCell('E'.($i+4))->setValue($nama);
             $jumlah=sizeof($hasil["data"]["modules"]);
-            if ($i==0){
+            //if ($i==0){
                 for ($j=0;$j<$jumlah;$j++){
                     $head[$j]=$hasil["data"]["modules"][$j]["name"];
                     $worksheet->getCell(chr(70+$j)."3")->setValue($hasil["data"]["modules"][$j]["name"]);   
                 }
-            }
+            //}
             $jumhead=sizeof($head);
             for ($j=0;$j<$jumhead;$j++){
                 for ($k=0;$k<$jumlah;$k++){
