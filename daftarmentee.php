@@ -7,9 +7,10 @@ use \PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 include "function.php";
 $cfg = parse_ini_file("config.txt", true);
 $token = $cfg["init"]["token"];
+$programid = $cfg["init"]["programid"];
 $curl = curl_init();
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://api.kampusmerdeka.kemdikbud.go.id/v1alpha1/mentors/me/mentees?type=studi&offset=0&limit=50",
+  CURLOPT_URL => "https://api.kampusmerdeka.kemdikbud.go.id/v1alpha1/mentors/me/mentees?program_id=".$programid."&offset=0&limit=50",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -58,6 +59,7 @@ if ($err) {
             $idmentee[$i]["idkegiatan"]=$hasil["data"][$i]["id_reg_penawaran"];
             $idmentee[$i]["nama"]=$hasil["data"][$i]["name"];
             $activity_id=$hasil["data"][$i]["activity_id"];
+            $activity=$hasil["data"][$i]["activity"];
             $worksheet->getCell('A'.($i+2))->setValue($i+1);
             $worksheet->getCell('B'.($i+2))->setValue($hasil["data"][$i]["id_reg_penawaran"]);
             $worksheet->getCell('C'.($i+2))->setValue($hasil["data"][$i]["name"]);
@@ -65,6 +67,7 @@ if ($err) {
             $worksheet->getCell('E'.($i+2))->setValue($hasil["data"][$i]["university_name"]);
         }
         $cfg["init"]["activity_id"]=$activity_id;
+        $cfg["init"]["activity"]=$activity;
         write_ini_file($cfg, 'config.txt', true);
         write_ini_file($idmentee, 'mentee.txt', true);
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xls');

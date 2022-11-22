@@ -8,6 +8,7 @@ $cfg = parse_ini_file("config.txt", true);
 $token = $cfg["init"]["token"];
 $nama = $cfg["init"]["nama"];
 $activity_id=$cfg["init"]["activity_id"];
+$activity=$cfg["init"]["activity"];
 $mentee = parse_ini_file("mentee.txt", true);
 $jmlmentee=sizeof($mentee);
 echo "ambil initial assessment\n";
@@ -55,7 +56,7 @@ for ($i=0;$i<$jmlmentee;$i++){
             $worksheet->getCell('A'.($i+4))->setValue($i+1);
             $worksheet->getCell('B'.($i+4))->setValue($mentee[$i]["idkegiatan"]);
             $worksheet->getCell('C'.($i+4))->setValue($mentee[$i]["nama"]);
-            $worksheet->getCell('D'.($i+4))->setValue("Studi Independen Bersertifikat : Digital Transformation in The Government ");
+            $worksheet->getCell('D'.($i+4))->setValue($activity);
             $worksheet->getCell('E'.($i+4))->setValue($nama);
             $jumlah=sizeof($hasil["data"]["modules"]);
             //if ($i==0){

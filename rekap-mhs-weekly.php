@@ -47,6 +47,7 @@ for ($i=0;$i<$jmlmentee;$i++){
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
+        //echo $response.PHP_EOL;
         $hasil=json_decode($response,true);
         if (isset($hasil["error"])){
             if ($hasil["error"]["code"]==16)
@@ -57,16 +58,17 @@ for ($i=0;$i<$jmlmentee;$i++){
             $baris = 0;
             $totalchild = 0;
             $total = sizeof($hasil["data"]);
+            echo str_replace("'","",substr($mentee[$i]["nama"],0,20));
             //jika worksheet sudah ada maka di hapus terlebih dahulu
-            if (!is_null($spreadsheet->getSheetByName(substr($mentee[$i]["nama"],0,29))))
+            if (!is_null($spreadsheet->getSheetByName(str_replace("'","",substr($mentee[$i]["nama"],0,20)))))
             {
-                $sheetIndex = $spreadsheet->getIndex($spreadsheet->getSheetByName(substr($mentee[$i]["nama"],0,29)));
+                $sheetIndex = $spreadsheet->getIndex($spreadsheet->getSheetByName(str_replace("'","",substr($mentee[$i]["nama"],0,20))));
                 $spreadsheet->removeSheetByIndex($sheetIndex);
             }
             //membuat worksheet baru
             $worksheet = $spreadsheet->createSheet();
-            $worksheet->setTitle(substr($mentee[$i]["nama"],0,29));
-            $worksheet = $spreadsheet->setActiveSheetIndexByName(substr($mentee[$i]["nama"],0,29));
+            $worksheet->setTitle(str_replace("'","",substr($mentee[$i]["nama"],0,20)));
+            $worksheet = $spreadsheet->setActiveSheetIndexByName(str_replace("'","",substr($mentee[$i]["nama"],0,20)));
             //setting ukuran column
             $spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(100, 'pt'); 
             $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth(300, 'pt'); 
