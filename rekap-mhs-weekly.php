@@ -58,7 +58,7 @@ for ($i=0;$i<$jmlmentee;$i++){
             $baris = 0;
             $totalchild = 0;
             $total = sizeof($hasil["data"]);
-            echo str_replace("'","",substr($mentee[$i]["nama"],0,20));
+            echo str_replace("'","",substr($mentee[$i]["nama"],0,20)).PHP_EOL;
             //jika worksheet sudah ada maka di hapus terlebih dahulu
             if (!is_null($spreadsheet->getSheetByName(str_replace("'","",substr($mentee[$i]["nama"],0,20)))))
             {
