@@ -8,6 +8,72 @@ masih banyak ruang untuk berkolaborasi, yuk gass.
 ## cara install
 install PHP dan git di komputer dan mendukung bash script (optional)
 
+PHP module yang dibutuhkan
+
+bcmath
+bz2
+calendar
+Core
+ctype
+curl
+date
+dba
+dom
+exif
+FFI
+fileinfo
+filter
+ftp
+gd
+gettext
+gmp
+hash
+iconv
+intl
+json
+ldap
+libxml
+mbstring
+mysqli
+mysqlnd
+odbc
+openssl
+pcntl
+pcre
+PDO
+pdo_dblib
+pdo_mysql
+PDO_ODBC
+pdo_pgsql
+pdo_sqlite
+pgsql
+Phar
+phpdbg_webhelper
+posix
+pspell
+readline
+Reflection
+session
+shmop
+SimpleXML
+soap
+sockets
+sodium
+SPL
+sqlite3
+standard
+sysvmsg
+sysvsem
+sysvshm
+tidy
+tokenizer
+xml
+xmlreader
+xmlwriter
+xsl
+zip
+zlib
+
 clone repository
 
 ```bash
