@@ -43,6 +43,7 @@ if ($err) {
   echo "cURL Error #:" . $err;
 } else {
     $hasil=json_decode($response,true);
+    usort($hasil['data'], fn($a, $b) => $a['id_reg_penawaran'] <=> $b['id_reg_penawaran']);
     if (isset($hasil["error"])){
         if ($hasil["error"]["code"]==16)
             {
