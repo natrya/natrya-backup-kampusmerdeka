@@ -48,15 +48,18 @@ for ($i=0;$i<$jmlmentee;$i++){
             $jumlah=sizeof($hasil["data"]);
             $draft=0;
             $unreview=0;
+	    $revisi=0;
             for ($j=0;$j<$jumlah;$j++){
                 if ($hasil["data"][$j]["status"]=="DRAFT"){
                     $draft++;
                 }else if($hasil["data"][$j]["status"]=="SUBMITTED"){
                     $unreview++;
                 }
-
+		if ($hasil["data"][$j]["status"]=="NEED_REVISE"){
+		    $revisi++;
+		}
             }
-            echo $mentee[$i]["nama"]." kurang ".$draft." belumrev ".$unreview."\n";
+            echo $mentee[$i]["idkegiatan"]." ".$mentee[$i]["email"]." ".$mentee[$i]["univ"]." ".$mentee[$i]["nama"]." kurang ".$draft." ,revisi ".$revisi." ,belumrev ".$unreview."\n";
         }
     }
 }

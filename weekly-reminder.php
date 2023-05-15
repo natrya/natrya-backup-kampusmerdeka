@@ -34,11 +34,11 @@ for ($i=0;$i<$jmlmentee;$i++){
     $err = curl_error($curl);
 
     curl_close($curl);
-
+  
     if ($err) {
         echo "cURL Error #:" . $err;
     } else {
-        $hasil=json_decode($response,true);
+	$hasil=json_decode($response,true);
         if (isset($hasil["error"])){
             if ($hasil["error"]["code"]==16)
             {
@@ -47,12 +47,16 @@ for ($i=0;$i<$jmlmentee;$i++){
         }else{
             $jumlah=sizeof($hasil["data"]);
             $draft=0;
+	    $revisi=0;
             for ($j=0;$j<$jumlah;$j++){
                 if ($hasil["data"][$j]["status"]=="DRAFT"){
                     $draft++;
                 }
+		if ($hasil["data"][$j]["status"]=="NEED_REVISE"){
+		    $revisi++;
+		}
             }
-            echo $mentee[$i]["nama"]." kurang ".$draft."\n";
+            echo $mentee[$i]["idkegiatan"]." ".$mentee[$i]["nama"]." kurang ".$draft." dan revisi ".$revisi."\n";
         }
     }
 }

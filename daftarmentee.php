@@ -59,6 +59,8 @@ if ($err) {
             $idmentee[$i]["id"]=$hasil["data"][$i]["id"];
             $idmentee[$i]["idkegiatan"]=$hasil["data"][$i]["id_reg_penawaran"];
             $idmentee[$i]["nama"]=$hasil["data"][$i]["name"];
+	    $idmentee[$i]["email"]=$hasil["data"][$i]["email"];
+	    $idmentee[$i]["univ"]=$hasil["data"][$i]["university_name"];
             $activity_id=$hasil["data"][$i]["activity_id"];
             $activity=$hasil["data"][$i]["activity"];
             $worksheet->getCell('A'.($i+2))->setValue($i+1);
