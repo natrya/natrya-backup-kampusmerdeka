@@ -47,7 +47,7 @@ for ($i=0;$i<$jmlmentee;$i++){
             }
         }else{
             $jumlah=sizeof($hasil["data"]);
-            $k=0;
+            $l=0;
             $submit=array();
             for ($j=0;$j<$jumlah;$j++){
                 if ($hasil["data"][$j]["status"]=="SUBMITTED"){
@@ -55,20 +55,20 @@ for ($i=0;$i<$jmlmentee;$i++){
                     echo "Minggu ke-".$hasil["data"][$j]["counter"].PHP_EOL;
                     $kurang = 0;
                     $totalchild = sizeof ($hasil["data"][$j]["daily_reports"]); 
-                    for ($k=0;$k < $totalchild;$k++)
-                    {
-                        if (str_word_count($hasil["data"][$j]["daily_reports"][$k]["report"]) < 20)
-                        {
-                            $kurang =1;
-                            echo date('d F Y', strtotime($hasil["data"][$j]["daily_reports"][$k]["report_date"]))." kurang dari 20 kata".PHP_EOL;
-                        }
-                    }
-                    if ($kurang == 0)
-                    {
-                        $submit[$k]=$hasil["data"][$j]["id"];
-                        $k++;
-                    }
-                }
+		    for ($k=0;$k < $totalchild;$k++)
+		    {
+			    if (str_word_count($hasil["data"][$j]["daily_reports"][$k]["report"]) < 5)
+			    {
+				    $kurang =1;
+				    echo date('d F Y', strtotime($hasil["data"][$j]["daily_reports"][$k]["report_date"]))." kurang dari 20 kata".PHP_EOL;
+			    }
+		    }
+		    if ($kurang == 0)
+		    {
+			    $submit[$l]=$hasil["data"][$j]["id"];
+			    $l++;
+		    }
+		}
             }
             $jumsubmit=sizeof($submit);
             if ($jumsubmit > 0){

@@ -39,7 +39,7 @@ function get_profile($token){
             $programid=$res["data"]["program"]["id"];
             $cfg = parse_ini_file("config.txt", true);
             $cfg["init"]["nama"]=$nama;
-            $cfg["init"]["programid"]=$programid;
+            //$cfg["init"]["programid"]=$programid;
             write_ini_file($cfg, 'config.txt', true);
         }
     }
